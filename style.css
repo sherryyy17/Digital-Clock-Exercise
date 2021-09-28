@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    padding: 18vh 0;
+    background-color: rgb(59, 147, 209);
+    color: white;
+}
+#greeting{
+    font-size: 4rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+.divider{
+    width: 3.8rem;
+    height: 0.8rem;
+    background-color: white;
+    margin: 2.5rem;
+}
+#time{
+    font-family: 'Public Sans', sans-serif;
+    font-size: 20vh;
+    margin-bottom: 2rem;
+    letter-spacing: 3px;
+}
+#date{
+    font-size: 2.2rem;
+}
+@media (min-width:400px) and (max-width:786px) {
+    #time{
+        font-size: 10vh;
+    }
+}
+@media (max-width:400px) {
+    #time{
+        font-size: 3rem;
+        text-align: center;
+    }
+    #greeting{
+        font-size: 3rem;
+        text-align: center;
+    }
+    #date{
+        font-size: 2rem;
+        text-align: center;
+    }
+}

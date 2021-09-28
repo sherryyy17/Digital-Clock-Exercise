@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+    <title>Digital Clock</title>
+</head>
+<body>
+    <div class="container">
+        <h1 id="greeting"></h1>
+        <hr class="divider" />
+        <h1 id="time"></h1>
+        <h2 id="date"></h2>
+    </div>
+    <script>
+        setInterval(function(){
+
+            var today = new Date();
+            var hours = today.getHours();
+            var minutes = today.getMinutes();
+            var sec = today.getSeconds();
+
+            //AM or PM
+            var timezone = hours >= 12 ? 'PM' : 'AM';
+
+            //Greetings
+            var greeting = hours >= 5 && hours < 12 ? 'Good Morning' 
+                        : (hours >= 12 && hours <=16) ? 'Good Afternoon' 
+                        : (hours > 16 && hours < 21) ? 'Good Evening' : 'Good Night';
+            //Current Date
+            var month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            var mon = month[today.getMonth()];
+            var date = today.getDate()+" "+mon+" "+today.getFullYear();
+
+            //Current Time
+            hours = hours >= 12 ? (hours % 12) : hours;
+
+            hours = hours < 10 ? '0'+hours : hours;
+            minutes = minutes < 10 ? '0'+minutes : minutes;
+            sec = sec < 10 ? '0'+sec : sec;
+
+            var time = hours+':'+minutes+':'+sec+' '+timezone;
+
+            //Display
+            document.getElementById("time").innerHTML = time;
+            document.getElementById("greeting").innerHTML = greeting;
+            document.getElementById("date").innerHTML = date;
+            
+        },1000);
+
+    </script>
+</body>
+</html>
